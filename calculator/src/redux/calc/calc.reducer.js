@@ -1,7 +1,7 @@
 import CartActionTypes from "./calc.types";
 
 const INITIAL_STATE = {
-  currentSolution: null,
+  currentSolution: [12],
 };
 
 const calcReducer = (state = INITIAL_STATE, action) => {

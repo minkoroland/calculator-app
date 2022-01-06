@@ -24,12 +24,6 @@ body {
   border-radius: 5px;
 }
 
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(60px, auto);
-}
-
 input[type="text"]{
   height: 75px;
   width: 249px;
@@ -42,6 +36,3 @@ input[type="text"]{
   letter-spacing: 1px;
 }
 
-#clear {
-  grid-column: 1/3;
-}
