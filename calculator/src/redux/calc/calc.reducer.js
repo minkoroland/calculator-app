@@ -1,51 +1,28 @@
-import CartActionTypes from "./calc.types";
+import CalcActionTypes from "./calc.types";
+//import {setCurrentSolution} from "../..App";
+
 
 const INITIAL_STATE = {
-  currentSolution: [12],
+  currentSolution: "",
 };
 
-const calcReducer = (state = INITIAL_STATE, action) => {
+/*
+const addNumberToState = (INITIAL_STATE.currentSolution) => {
+  type: CalcActionTypes.HANDLE_CLICK,
+  payload: result;
+};
+*/
+
+const calcReducer = (state = INITIAL_STATE, action /*, addNumberToState*/) => {
   switch (action.type) {
-    case CartActionTypes.HANDLE_CLICK:
+    case CalcActionTypes.SET_CURRENT_SOLUTION:
       return {
         ...state,
-        currentSolution: action.payload,
-      };
+        // utility fgv -> megkapja az értéket
+        // az értéket hozzáfűzöm a currentSolt stringhez
+        currentSolution: ,
+        //currentSolution: setCurrentSolution(state.currentSolution, action.payload),
 
-    case CartActionTypes.ADD:
-      return {
-        ...state,
-        currentSolution: action.payload,
-      };
-
-    case CartActionTypes.SUBSTRACT:
-      return {
-        ...state,
-        currentSolution: action.payload,
-      };
-
-    case CartActionTypes.MULTIPLY:
-      return {
-        ...state,
-        currentSolution: action.payload,
-      };
-
-    case CartActionTypes.DIVIDE:
-      return {
-        ...state,
-        currentSolution: action.payload,
-      };
-
-    case CartActionTypes.CLEAR:
-      return {
-        ...state,
-        currentSolution: "clear",
-      };
-
-    case CartActionTypes.EQUALS:
-      return {
-        ...state,
-        currentSolution: action.payload,
       };
 
     default:

@@ -1,35 +1,6 @@
-import CalcActionTypes from "./calc.reducer";
+import CalcActionTypes from "./calc.types";
 
-export const handleClick = (item) => ({
-  type: CalcActionTypes.HANDLE_CLICK,
-  payload: item,
-});
-
-export const add = (item) => ({
-  type: CalcActionTypes.ADD,
-  payload: item,
-});
-
-export const substract = (item) => ({
-  type: CalcActionTypes.SUBSTRACT,
-  payload: item,
-});
-
-export const multiply = (item) => ({
-  type: CalcActionTypes.MULTIPLY,
-  payload: item,
-});
-
-export const divide = (item) => ({
-  type: CalcActionTypes.DIVIDE,
-  payload: item,
-});
-
-export const equals = (item) => ({
-  type: CalcActionTypes.EQUALS,
-  payload: item,
-});
-
-export const clear = () => ({
-  type: CalcActionTypes.CLEAR,
+export const setCurrentSolution = (result) => ({
+  type: CalcActionTypes.SET_CURRENT_SOLUTION,
+  payload: result,
 });

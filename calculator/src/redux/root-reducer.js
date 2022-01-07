@@ -6,7 +6,6 @@ import persistReducer from "redux-persist/es/persistReducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["calc"],
 };
 
 const rootReducer = combineReducers({
