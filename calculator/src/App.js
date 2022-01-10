@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import "./App.css";
+import { connect } from "react-redux";
+import { setData } from "./redux/calc/calc.actions";
 import Buttons from "./components/buttons/buttons.component";
 
-const App = ({ setCurrentSolution }) => {
+const App = ({ data, setData }) => {
+  console.log(data);
+
   const [result, setResult] = useState("");
 
   const handleClick = (e) => {
     setResult(result.concat(e.target.name));
-    console.log(result);
 
-    setCurrentSolution(result);
+    e.preventDefault();
+    const newData = e.target["calcInput"].value;
+    console.log(newData);
+    setData(newData);
   };
 
   // logika: speciális jeleknél széttöröm a stringet; switch-csel logikát adok neki
@@ -37,11 +43,7 @@ const App = ({ setCurrentSolution }) => {
   return (
     <div className="container">
       <form>
-        <input
-          type="text"
-          value={result}
-          onChange={(e) => this.handleChange(e)}
-        />
+        <input type="text" defaultValue={result} name="calcInput" onChange={handleClick} />
       </form>
       <Buttons
         handleClick={handleClick}
@@ -53,5 +55,12 @@ const App = ({ setCurrentSolution }) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  data: state.calc.data,
+});
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setData: (result) => dispatch(setData(result)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
