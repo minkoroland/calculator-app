@@ -1,4 +1,3 @@
-import { clear } from "../../redux/calc/calc.actions";
 import "./buttons.styles.css";
 
 const Buttons = ({handleClick, equals, clear, backspace}) => {

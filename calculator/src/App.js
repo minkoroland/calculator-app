@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { setCurrentSolution } from "./redux/calc/calc.actions";
-import { connect } from "react-redux";
 import "./App.css";
 import Buttons from "./components/buttons/buttons.component";
 
@@ -55,8 +53,5 @@ const App = ({ setCurrentSolution }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentSolution: (result) => dispatch(setCurrentSolution(result)),
-});
 
-export default connect(null, mapDispatchToProps)(App);
+export default App;
