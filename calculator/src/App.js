@@ -1,37 +1,45 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { setData } from "./redux/calc/calc.actions";
 import Buttons from "./components/buttons/buttons.component";
 
 const App = ({ data, setData }) => {
-  console.log(data);
-
-  const [result, setResult] = useState("");
-
-  const handleClick = (e) => {
-    setResult(result.concat(e.target.name));
-
+  //const [result, setResult] = useState("");
+  let result = [];
+  
+  const handleChange = (e) => {
     e.preventDefault();
     const newData = e.target["calcInput"].value;
-    console.log(newData);
     setData(newData);
+  };
+
+  const handleClick = (e) => {
+    //setResult(result.concat(e.target.name));
+    //e.preventDefault();
+    //const newData = e.target["calcInput"].value;
+    //setData(newData);
+    result.concat(e.target.name);
+    //result.push(e.target.name)
   };
 
   // logika: speciális jeleknél széttöröm a stringet; switch-csel logikát adok neki
   // add, substract, multiply, divide
   const equals = () => {
-    setResult(eval(result));
+    //setResult(eval(result));
+    handleClick(eval(result));
   };
 
   // clear
   const clear = () => {
-    setResult("");
+    //setResult("");
+    handleClick("");
   };
 
   // backspace
   const backspace = () => {
-    setResult(result.slice(0, -1));
+    //setResult(result.slice(0, -1));
+    handleClick(result.slice(0, -1));
   };
   /*
   changeText(event){
@@ -43,7 +51,7 @@ const App = ({ data, setData }) => {
   return (
     <div className="container">
       <form>
-        <input type="text" defaultValue={result} name="calcInput" onChange={handleClick} />
+        <input value={data} name="calcInput" onChange={handleChange} />
       </form>
       <Buttons
         handleClick={handleClick}
@@ -64,3 +72,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+//<input type="text" defaultValue={data} name="calcInput" />
