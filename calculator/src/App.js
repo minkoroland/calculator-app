@@ -1,52 +1,32 @@
-//import React, { useState } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { setData } from "./redux/calc/calc.actions";
 import Buttons from "./components/buttons/buttons.component";
 
 const App = ({ data, setData }) => {
-  //const [result, setResult] = useState("");
-  let result = [];
   
   const handleChange = (e) => {
-    e.preventDefault();
-    const newData = e.target["calcInput"].value;
+    const newData = e.target.value;
     setData(newData);
   };
 
   const handleClick = (e) => {
-    //setResult(result.concat(e.target.name));
-    //e.preventDefault();
-    //const newData = e.target["calcInput"].value;
-    //setData(newData);
-    result.concat(e.target.name);
-    //result.push(e.target.name)
+    setData(data.concat(e.target.name));
   };
 
-  // logika: speciális jeleknél széttöröm a stringet; switch-csel logikát adok neki
-  // add, substract, multiply, divide
   const equals = () => {
-    //setResult(eval(result));
-    handleClick(eval(result));
+    setData(eval(data));
   };
 
   // clear
   const clear = () => {
-    //setResult("");
-    handleClick("");
+    setData("");
   };
 
   // backspace
-  const backspace = () => {
-    //setResult(result.slice(0, -1));
-    handleClick(result.slice(0, -1));
+  const backspace = (e) => {
+    setData(data.slice(0, -1)) || setData("");
   };
-  /*
-  changeText(event){
-    this.setState(
-        {textValue : event.target.value}
-    );
-*/
 
   return (
     <div className="container">

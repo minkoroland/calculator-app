@@ -1,7 +1,7 @@
 import CalcActionTypes from "./calc.types";
 
 const INITIAL_STATE = {
-  data: "this is a calculator",
+  data: "",
 };
 
 const calcReducer = (state = INITIAL_STATE, action) => {
