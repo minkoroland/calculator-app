@@ -4,7 +4,7 @@ import { setData } from "./redux/calc/calc.actions";
 import Buttons from "./components/buttons/buttons.component";
 
 const App = ({ data, setData }) => {
-  
+
   const handleChange = (e) => {
     const newData = e.target.value;
     setData(newData);
@@ -31,7 +31,7 @@ const App = ({ data, setData }) => {
   return (
     <div className="container">
       <form>
-        <input value={data} name="calcInput" onChange={handleChange} />
+        <input value={data} name="calcInput" onChange={handleChange} type="text"/>
       </form>
       <Buttons
         handleClick={handleClick}
